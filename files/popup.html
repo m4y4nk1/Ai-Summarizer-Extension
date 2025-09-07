@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Summarizer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-width: 400px;
+            min-height: 250px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+        }
+
+        h2 {
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        option {
+            background-color: #2a5298;
+            color: #fff;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #summarize {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        #summarize:hover {
+            background-color: #00a4b8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        #copy-btn {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        #copy-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        #result {
+            background-color: #ffffff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            min-height: 150px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            transition: background-color 0.3s ease;
+        }
+
+        #result:empty {
+            text-align: center;
+            color: #aaa;
+            padding-top: 50px;
+        }
+
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <h2>AI SUMMARIZER</h2>
+    <div class="options">
+        <select id="summary-type">
+            <option value="brief">Brief</option>
+            <option value="detailed">Detailed</option>
+            <option value="bullets">Bullets</option>
+        </select>
+    </div>
+
+    <div class="buttons">
+        <button id="summarize">Summarize</button>
+        <button id="copy-btn">Copy</button>
+    </div>
+
+    <pre id="result">Select a type and click Summarize...</pre>
+
+    <script src="popup.js"></script>
+</body>
+</html>
